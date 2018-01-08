@@ -1,8 +1,8 @@
-# REDAXO Community World Map
+# OXID Community Map
 
-A map filled with people being involved in [REDAXO](https://redaxo.org) CMS. Hosted at GitHub, which allows for everyone to add their map entries. ♥ Join us!
+A map filled with people being involved in [OXID](https://oxidforge.org) CMS. Hosted at GitHub, which allows for everyone to add their map entries. ♥ Join us!
 
-👉 __https://friendsofredaxo.github.io/community/__
+__https://oxidprojects.github.io/community_map/__
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/community/assets/community_02.png)
 

@@ -50,7 +50,7 @@ h2 {
 }
 
 a {
-  color: #3fb4ff;
+  color: #2c2c2c;
   text-decoration: none;
   -webkit-transition: color 100ms ease-out;
   -o-transition: color 100ms ease-out;
@@ -58,7 +58,7 @@ a {
 
   &:hover,
   &:focus {
-    color: #80ceff;
+    color: #575756;
   }
 }
 
@@ -103,10 +103,10 @@ abbr[title] {
   &:hover,
   &:focus {
     .infobanner__redaxo {
-      background: #59bfff;
+      background: #2c2c2c;
     }
     .infobanner__join {
-      background: #eaff73;
+      background: #c02124;
     }
   }
 }
@@ -121,7 +121,7 @@ abbr[title] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: #3fb4ff;
+  background: #2c2c2c;
   color: #fff;
   height: 25px;
   padding: 0 15px;
@@ -150,8 +150,8 @@ abbr[title] {
   -ms-flex-align: center;
   align-items: center;
   height: 25px;
-  background: #deff25;
-  color: #266d99;
+  background: #c02124;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 0 15px;
@@ -181,7 +181,7 @@ abbr[title] {
   max-width: 600px;
   max-height: 100%;
   background: #fff;
-  border: 2px solid #deff25;
+  border: 2px solid #c02124;
   opacity: 0;
   -webkit-transform: translate3d(-50%, calc(-50% + 20px), 0);
   transform: translate3d(-50%, calc(-50% + 20px), 0);
@@ -215,7 +215,7 @@ abbr[title] {
   &:hover,
   &:focus {
     i {
-      background-color: #80ceff;
+      background-color: #c02124;
     }
   }
 
@@ -227,7 +227,7 @@ abbr[title] {
     position: absolute;
     top: 50%;
     left: 50%;
-    background: #3fb4ff;
+    background: #c02124;
   }
   > i {
     -webkit-transform: translate(-50%, -50%) rotate(45deg);
@@ -264,19 +264,19 @@ abbr[title] {
 /* leaflet styles */
 
 .leaflet-bar {
-  border: 2px solid rgba(#fff, 0.5) !important;
+  border: 2px solid rgba(#fff, 0.5);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .leaflet-bar a {
-  background-color: #3fb4ff;
+  background-color: #c02124;
   color: #fff;
   border-bottom-color: #fff;
 
   &:hover,
   &:focus {
-    background-color: #87d1ff;
+    background-color: #c02124;
   }
 }
 
@@ -293,13 +293,13 @@ abbr[title] {
 .marker-cluster-small,
 .marker-cluster-medium,
 .marker-cluster-large {
-  background-color: rgba(#87d1ff, 0.6);
+  background-color: rgba(#b0b1b1, 0.6);
 }
 
 .marker-cluster-small div,
 .marker-cluster-medium div,
 .marker-cluster-large div {
-  background-color: rgba(#3fb4ff, 0.6);
+  background-color: rgba(#575756, 0.6);
 }
 
 /* leaflet popup content styles */
@@ -392,7 +392,7 @@ abbr[title] {
   padding-top: 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 12px;
-  color: #999;
+  color: #575756;
 }
 
 .redaxo-logo {

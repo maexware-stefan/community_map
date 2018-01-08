@@ -56,10 +56,10 @@ layout: compress
             "@context": "http://schema.org",
             "@type": "WebSite",
             "name": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
-            "publisher": "Friends Of REDAXO",
+            "publisher": "OXIDforge",
             "url": "{{ page.url | absolute_url }}",
             "description": "{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}",
-            "image": "{{ '/icons/redaxo-community.png' | absolute_url }}"
+            "image": "{{ '/icons/oxid-community.png' | absolute_url }}"
         }
     ]
     </script>
@@ -100,15 +100,15 @@ layout: compress
                 Community World Map
             </h1>
 
-            <p>Any of the <strong>{{ site.directory | size }}</strong> location markers on this map represents someone who’s involved in <a href="https://redaxo.org">REDAXO</a>, which we the community believe is one of the finest CMS around.&nbsp;✌️</p>
-            <p>The project is hosted at <a href="https://github.com/FriendsOfREDAXO/community">GitHub</a>, which allows for everyone to <strong>add and manage their map entries by themselves</strong>! This is pretty cool. If you like to join the map, just follow the link and find all information:</p>
+            <p>Any of the <strong>{{ site.directory | size }}</strong> location markers on this map represents someone who’s involved in <a href="https://oxidforge.org">OXID</a>, which we the community believe is one of the finest CMS around.&nbsp;✌️</p>
+            <p>The project is hosted at <a href="https://github.com/OXIDforge/community_map">GitHub</a>, which allows everyone to <strong>add and manage their map entries by themselves</strong>! This is pretty cool. If you like to join the map, just follow the link and find all information:</p>
 
             <div class="calltoaction">
-                <p>👉 <a href="https://github.com/FriendsOfREDAXO/community/tree/master/_directory">Learn how to manage your marker!</a></p>
+                <p><a href="https://github.com/OXIDprojects/community_map/tree/master/_directory">Learn how to manage your marker!</a></p>
             </div>
 
             <div class="legals">
-                <p>Legals: This service is provided by the REDAXO community which is represented by <a href="http://www.yakamara.de/#impressum">Yakamara&nbsp;Media</a>. It is <abbr title="Free and Open Source Software">FOSS</abbr> and usage is free of charge.</p>
+                <p>Legals: This service is provided by the REDAXO community which is represented by <a href="http://www.yakamara.de/#impressum">Yakamara&nbsp;Media</a>. It is <abbr title="Free and Open Source Software">FOSS</abbr>, and usage is free of charge.</p>
             </div>
 
         </div>

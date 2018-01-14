@@ -12,8 +12,8 @@ layout: compress
 
     <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <meta name="keywords" content="OXID,community,shop,people,map,github,leaflet">
-    <meta name="author" content="OXIDprojects">
+    <meta name="keywords" content="redaxo,community,cms,people,map,github,leaflet">
+    <meta name="author" content="Friends Of REDAXO">
 
     <!-- styles -->
     <link rel="stylesheet" href="{{ '/assets/vendor/leaflet/leaflet.css' | relative_url }}">
@@ -38,15 +38,15 @@ layout: compress
     <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
     <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ '/icons/oxid-community.png' | absolute_url }}">
+    <meta property="og:image" content="{{ '/icons/redaxo-community.png' | absolute_url }}">
     <meta property="og:locale" content="de_DE">
 
     <!-- twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@OXIDforge">
+    <meta name="twitter:site" content="@REDAXO">
     <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
     <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <meta name="twitter:image" content="{{ '/icons/oxid-community.png' | absolute_url }}">
+    <meta name="twitter:image" content="{{ '/icons/redaxo-community.png' | absolute_url }}">
     <meta name="twitter:image:alt" content="Screenshot of community map">
 
     <!-- JSON LD -->
@@ -56,10 +56,10 @@ layout: compress
             "@context": "http://schema.org",
             "@type": "WebSite",
             "name": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
-            "publisher": "OXIDforge",
+            "publisher": "Friends Of REDAXO",
             "url": "{{ page.url | absolute_url }}",
             "description": "{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}",
-            "image": "{{ '/icons/oxid-community.png' | absolute_url }}"
+            "image": "{{ '/icons/redaxo-community.png' | absolute_url }}"
         }
     ]
     </script>
@@ -69,57 +69,14 @@ layout: compress
     <script src="{{ '/assets/vendor/leaflet.markercluster/dist/leaflet.markercluster.js' | relative_url }}"></script>
     <script src="{{ '/assets/vendor/leaflet.edgebuffer/src/leaflet.edgebuffer.js' | relative_url }}"></script>
     <script src="{{ '/assets/plugins/hash/hash.js' | relative_url }}"></script>
-</head>
-
-<body>
-
-    <!-- map container -->
-    <div class="map" id="map"></div>
 
 
-    <!-- info banner at bottom on site, click toggles popover -->
-    <a class="infobanner" id="popover-open">
-        <div class="infobanner__OXID">
-            <img class="infobanner__logo" src="{{ '/assets/images/oxid.svg' | relative_url }}" alt="OXID">
-            <span>Community <span class="hide-xs">World</span> Map</span>
-        </div>
-        <div class="infobanner__join">
-            <span class="infobanner__heart">♥</span>
-            <span>Join!</span>
-        </div>
-    </a>
-
-
-    <!-- popover -->
-    <div class="popover" id="popover">
-        <button id="popover-close" class="popover__close" type="button"><span>Close</span><i><i></i></i></button>
-        <div class="popover__body">
-
-            <h1 class="popover__title">
-                <img class="oxid-logo" src="{{ '/assets/images/oxid-eshop.svg' | relative_url }}" alt="OXID"><br>
-                Community Map
-            </h1>
-
-            <p>Any of the <strong>{{ site.directory | size }}</strong> location markers on this map represents someone who’s involved in <a href="https://oxidforge.org">OXID</a>, which we the community believe is one of the finest CMS around.&nbsp;✌️</p>
-            <p>The project is hosted at <a href="https://github.com/OXIDforge/community_map">GitHub</a>, which allows everyone to <strong>add and manage their map entries by themselves</strong>! This is pretty cool. If you like to join the map, just follow the link and find all information:</p>
-
-            <div class="calltoaction">
-                <p><a href="https://github.com/OXIDprojects/community_map/tree/master/_directory">Learn how to manage your marker!</a></p>
-            </div>
-
-            <div class="legals">
-                <p>Legals: This service is provided by the REDAXO community which is represented by <a href="http://www.yakamara.de/#impressum">Yakamara&nbsp;Media</a>. It is <abbr title="Free and Open Source Software">FOSS</abbr>, and usage is free of charge.</p>
-            </div>
-
-        </div>
-    </div>
-
-
-    <!-- load directory data -->
+    <!-- init directory data and items counter -->
     {% assign directoryData = site.collections | where: "label", "directory" | first %}
+    {% assign itemsCount = 0 %}
 
 
-    <!-- directory data -->
+    <!-- process directory data -->
     <script>
     var directory = [
         {% for entry in site.directory %}
@@ -134,10 +91,20 @@ layout: compress
         {% assign name = entry.name | strip_html | truncate: 100 | escape_once | jsonify %}
 
         <!-- latitude -->
-        {% assign latitude = entry.latitude | strip_html | escape_once | jsonify %}
+        {% assign latitude = entry.latitude | strip_html | escape_once %}
+        {% if latitude.size > 0 %}
+            {% assign latitude = latitude | jsonify %}
+        {% else %}
+            {% continue %}
+        {% endif %}
 
         <!-- longitude -->
-        {% assign longitude = entry.longitude | strip_html | escape_once | jsonify %}
+        {% assign longitude = entry.longitude | strip_html | escape_once %}
+        {% if longitude.size > 0 %}
+            {% assign longitude = longitude | jsonify %}
+        {% else %}
+            {% continue %}
+        {% endif %}
 
         <!-- bio -->
         {% assign bio = entry.bio | strip_html | truncate: 300 | escape_once | jsonify %}
@@ -174,6 +141,9 @@ layout: compress
         <!-- links -->
         {% assign links = entry.links | jsonify | escape_once | replace: "&quot;", '"' %}
 
+        <!-- increment counter -->
+        {% assign itemsCount = itemsCount | plus: 1 %}
+
         <!-- output -->
         {
             'id': {{ id }},
@@ -191,5 +161,51 @@ layout: compress
 
     <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
 
+</head>
+
+<body>
+
+    <!-- map container -->
+    <div class="map" id="map"></div>
+
+
+    <!-- info banner at bottom on site, click toggles popover -->
+    <a class="infobanner" id="popover-open">
+        <div class="infobanner__redaxo">
+            <img class="infobanner__logo" src="{{ '/assets/images/redaxo.svg' | relative_url }}" alt="REDAXO">
+            <span>Community <span class="hide-xs">World</span> Map</span>
+        </div>
+        <div class="infobanner__join">
+            <span class="infobanner__heart">♥</span>
+            <span>Join!</span>
+        </div>
+    </a>
+
+
+    <!-- popover -->
+    <div class="popover" id="popover">
+        <button id="popover-close" class="popover__close" type="button"><span>Close</span><i><i></i></i></button>
+        <div class="popover__body">
+
+            <h1 class="popover__title">
+                <img class="redaxo-logo" src="{{ '/assets/images/redaxo-cms.svg' | relative_url }}" alt="REDAXO"><br>
+                Community World Map
+            </h1>
+
+            <p>Any of the <strong>{{ itemsCount }}</strong> location markers on this map represents someone who’s involved in <a href="https://redaxo.org">REDAXO</a>, which we the community believe is one of the finest CMS around.&nbsp;✌️</p>
+            <p>The project is hosted at <a href="https://github.com/FriendsOfREDAXO/community">GitHub</a>, which allows for everyone to <strong>add and manage their map entries by themselves</strong>! This is pretty cool. If you like to join the map, just follow the link and find all information:</p>
+
+            <div class="calltoaction">
+                <p>👉 <a href="https://github.com/FriendsOfREDAXO/community/tree/master/_directory">Learn how to manage your marker!</a></p>
+            </div>
+
+            <div class="legals">
+                <p>Legals: This service is provided by the REDAXO community which is represented by <a href="http://www.yakamara.de/#impressum">Yakamara&nbsp;Media</a>. It is <abbr title="Free and Open Source Software">FOSS</abbr> and usage is free of charge.</p>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 </html>
+

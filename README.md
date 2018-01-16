@@ -6,11 +6,11 @@ __https://oxidprojects.github.io/community_map/__
 
 ![Screenshot](https://raw.githubusercontent.com/OXIDprojects/community_map/master/assets/images/communitymap_readme.png)
 
-The screenshot above shows what user entries look like. You’ll even get your own URL for your entry, which is awesome! Look, this is a [link to Markus](https://friendsofredaxo.github.io/community/#staabm).
+The screen shot above shows what user entries look like. You’ll even get your own URL for your entry - awesome, isn't it? For example, this is a [link to Chris](https://oxidprojects.github.io/community_map/#code-commerce).
 
 ## How to add and manage your entry?
 
-You can add your marker to the map and manage your data by yourself. Learn about [3 ways how to manage your entry](https://github.com/FriendsOfREDAXO/community/tree/master/_directory)! 🚀
+You can add your own marker to the map and manage your data yourself. Learn about it at [3 ways how to manage your entry](https://github.com/FriendsOfREDAXO/community/tree/master/_directory)!
 
 ## Who’s the map for?
 

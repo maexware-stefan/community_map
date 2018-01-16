@@ -1,10 +1,10 @@
 # OXID Community Map
 
-A map filled with people being involved in [OXID](https://oxidforge.org) CMS. Hosted at GitHub, which allows for everyone to add their map entries. ♥ Join us!
+A map stuffed with peeps being involved in [OXID eShop](https://oxidforge.org) development. The directory is hosted on GitHub and hence allows everyone to add, delete or alter its own entry. ♥ Join us!
 
 __https://oxidprojects.github.io/community_map/__
 
-![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/community/assets/community_02.png)
+![Screenshot](https://raw.githubusercontent.com/OXIDprojects/community_map/assets/images/communitymap_readme.png
 
 The screenshot above shows what user entries look like. You’ll even get your own URL for your entry, which is awesome! Look, this is a [link to Markus](https://friendsofredaxo.github.io/community/#staabm).
 

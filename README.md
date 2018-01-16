@@ -4,7 +4,7 @@ A map stuffed with peeps being involved in [OXID eShop](https://oxidforge.org) d
 
 __https://oxidprojects.github.io/community_map/__
 
-![Screenshot] (https://raw.githubusercontent.com/OXIDprojects/community_map/assets/images/communitymap_readme.png)
+![Screenshot](https://raw.githubusercontent.com/OXIDprojects/community_map/master/assets/images/communitymap_readme.png)
 
 The screenshot above shows what user entries look like. You’ll even get your own URL for your entry, which is awesome! Look, this is a [link to Markus](https://friendsofredaxo.github.io/community/#staabm).
 
